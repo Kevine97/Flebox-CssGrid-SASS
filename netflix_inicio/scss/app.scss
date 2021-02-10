@@ -1,0 +1,144 @@
+@import "variables";
+@import "mixins";
+
+html {
+  @include box-sizing(border-box);
+}
+
+*,
+*:after,
+*:before {
+  @include box-sizing(inherit);
+}
+
+body {
+  background-color: $negro;
+  font-family: $fuentePrincipal;
+  color: $gris2;
+
+  @include tablet {
+    background-color: unset;
+    background-image: url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    
+  }
+}
+
+.fondo{
+  background-color: rgba(0,0,0,0.6);
+}
+
+
+a {
+  color: $gris2;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.site-header{
+    margin: 0;
+    padding: 0;
+    
+}
+.contenedor {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: -100rem;
+  
+}
+
+.logotipo {
+  margin-top: 0.5rem;
+  max-width: 130px;
+  max-height: 80px;
+  margin-left:5%;
+
+  @include tablet {
+    max-width: 200px;
+    max-height: 150px;
+    margin-top: -20px;
+    margin-left: 4%;
+  }
+
+}
+
+.forulario-login {
+  @include tablet {
+      background-color: rgba(0, 0, 0, 0.75);
+      max-width: 450px;
+      padding: 2rem 4rem;
+      margin: 1rem auto 4rem auto;
+      
+    }
+}
+
+
+form {
+  legend {
+    color: $blanco;
+    font-size: 2rem;
+    margin: 2rem 0;
+    font-weight: bold;
+  }
+  .campos {
+    display: flex;
+    position: relative;
+    margin-bottom: 0.8rem;
+
+    label {
+      position: absolute;
+      top: 1.1rem;
+      left: 1rem;
+      font-size: 0.9rem;
+      transition: font-size 0.2s ease, top 0.2s ease;
+    }
+
+    input {
+      flex: 1;
+      padding: 1.3rem 1rem 0.7rem 1rem;
+      border: none;
+      background-color: $gris;
+      border-radius: $radius;
+      color: $blanco;
+      &:focus {
+        background-color: $gris3;
+        outline: none;
+
+        + label {
+          position: absolute;
+          font-size: 0.6rem;
+          top: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .submit {
+    display: flex;
+    margin-top: 2rem;
+  
+    input[type="submit"] {
+      @include boton($primario);
+      outline: none;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .acciones {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+  }
+}
+
+
+footer{
+  @include tablet(){
+    padding-bottom: 2rem;
+  }
+}
